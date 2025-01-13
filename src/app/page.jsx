@@ -1,21 +1,15 @@
+"use client";
+
 import dynamic from "next/dynamic";
 
-const SkillPage = dynamic(() => import("@/components/resumePage/resumePage"), {
-  ssr: false,
-});
-const HomePage = dynamic(() => import("@/components/homePage/homePage"), {
-  ssr: false,
-});
+const SkillPage = dynamic(() => import("@/components/resumePage/resumePage"));
+const HomePage = dynamic(() => import("@/components/homePage/homePage"));
 const ServicePage = dynamic(
   () => import("@/components/servicePage/servicePage"),
-  { ssr: false },
 );
-const Project = dynamic(() => import("@/components/projectPage/project"), {
-  ssr: false,
-});
+const Project = dynamic(() => import("@/components/projectPage/project"));
 const ContactPage = dynamic(
   () => import("@/components/contactPage/contactPage"),
-  { ssr: false },
 );
 
 function Page() {
