@@ -21,21 +21,12 @@ import vibeshift4 from "@/assets/images/vibeShift4.png";
 import rightArrow from "@/assets/icon/rightArrow.png";
 import leftArrow from "@/assets/icon/leftArrow.png";
 
+// Register gsap plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
     id: 1,
-    image: [chattify, chattify2],
-    title: "Chattify chatting site",
-    description:
-      "In this website you chat with your friends, send emojis, messages, and share images. You can also log out and block users.",
-    technologies: "HTML5, CSS3, React, TypeScript, TailwindCSS, SCSS",
-    github: "https://github.com/Harshjs-Gupta/Chattify2",
-    url: "https://chattify2.vercel.app/",
-  },
-  {
-    id: 2,
     image: [
       EzzyShopHome,
       EzzyShop,
@@ -53,6 +44,16 @@ const projects = [
       "Next.js, CSS3, TypeScript, TailwindCSS, SCSS, Firebase, FireStore",
     github: "https://github.com/Harshjs-Gupta/EzzyShop",
     url: "https://ezzy-shop-eight.vercel.app/",
+  },
+  {
+    id: 2,
+    image: [chattify, chattify2],
+    title: "Chattify chatting site",
+    description:
+      "In this website you chat with your friends, send emojis, messages, and share images. You can also log out and block users.",
+    technologies: "HTML5, CSS3, React, TypeScript, TailwindCSS, SCSS",
+    github: "https://github.com/Harshjs-Gupta/Chattify2",
+    url: "https://chattify2.vercel.app/",
   },
   {
     id: 3,
@@ -91,45 +92,48 @@ function Project() {
   };
 
   useEffect(() => {
-    const projectItems = document.querySelectorAll(".project-item");
+    // Ensure we run this only in the client-side (browser) environment
+    if (typeof window !== "undefined") {
+      const projectItems = document.querySelectorAll(".project-item");
 
-    projectItems.forEach((item, index) => {
+      projectItems.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          { x: index % 2 === 0 ? -200 : 200, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              end: "top 30%",
+              scrub: 3,
+              toggleActions: "play reverse play reverse",
+            },
+          },
+        );
+      });
       gsap.fromTo(
-        item,
-        { x: index % 2 === 0 ? -200 : 200, opacity: 0 },
+        ".title",
+        { x: -200, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: item,
+            trigger: ".title",
             start: "top 80%",
             end: "top 30%",
-            scrub: 3,
+            scrub: 2,
             toggleActions: "play reverse play reverse",
           },
         },
       );
-    });
-    gsap.fromTo(
-      ".title",
-      { x: -200, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".title",
-          start: "top 80%",
-          end: "top 30%",
-          scrub: 2,
-          toggleActions: "play reverse play reverse",
-        },
-      },
-    );
-  }, []);
+    }
+  }, []); // Ensure this effect runs once, only on client side
 
   return (
     <section
