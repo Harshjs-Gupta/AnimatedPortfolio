@@ -91,44 +91,46 @@ function Project() {
   };
 
   useEffect(() => {
-    const projectItems = document.querySelectorAll(".project-item");
+    if (typeof navigator !== "undefined") {
+      const projectItems = document.querySelectorAll(".project-item");
 
-    projectItems.forEach((item, index) => {
+      projectItems.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          { x: index % 2 === 0 ? -200 : 200, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              end: "top 30%",
+              scrub: 3,
+              toggleActions: "play reverse play reverse",
+            },
+          },
+        );
+      });
       gsap.fromTo(
-        item,
-        { x: index % 2 === 0 ? -200 : 200, opacity: 0 },
+        ".title",
+        { x: -200, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: item,
+            trigger: ".title",
             start: "top 80%",
             end: "top 30%",
-            scrub: 3,
+            scrub: 2,
             toggleActions: "play reverse play reverse",
           },
         },
       );
-    });
-    gsap.fromTo(
-      ".title",
-      { x: -200, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".title",
-          start: "top 80%",
-          end: "top 30%",
-          scrub: 2,
-          toggleActions: "play reverse play reverse",
-        },
-      },
-    );
+    }
   }, []);
 
   return (
