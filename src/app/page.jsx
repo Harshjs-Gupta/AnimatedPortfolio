@@ -1,8 +1,22 @@
-import SkillPage from "@/components/resumePage/resumePage";
-import HomePage from "@/components/homePage/homePage";
-import ServicePage from "@/components/servicePage/servicePage";
-import Project from "@/components/projectPage/project";
-import ContactPage from "@/components/contactPage/contactPage";
+import dynamic from "next/dynamic";
+
+const SkillPage = dynamic(() => import("@/components/resumePage/resumePage"), {
+  ssr: false,
+});
+const HomePage = dynamic(() => import("@/components/homePage/homePage"), {
+  ssr: false,
+});
+const ServicePage = dynamic(
+  () => import("@/components/servicePage/servicePage"),
+  { ssr: false },
+);
+const Project = dynamic(() => import("@/components/projectPage/project"), {
+  ssr: false,
+});
+const ContactPage = dynamic(
+  () => import("@/components/contactPage/contactPage"),
+  { ssr: false },
+);
 
 function Page() {
   return (
