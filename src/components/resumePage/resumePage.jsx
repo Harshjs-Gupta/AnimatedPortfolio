@@ -1,11 +1,9 @@
 "use client";
-import { useState, useRef } from "react";
-import "@google/model-viewer";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import DownloadCVButton from "../downloadPDF/downloadCVButton";
 import { useInView } from "framer-motion";
-import { useMotionValue } from "framer-motion";
-import { useTransform } from "framer-motion";
+import { useMotionValue, useTransform } from "framer-motion";
 
 function ResumePage() {
   const [activeSection, setActiveSection] = useState("education");
@@ -34,6 +32,13 @@ function ResumePage() {
     mouseX.set(0);
     mouseY.set(0);
   };
+
+  useEffect(() => {
+    // Dynamically import model-viewer only in the client-side
+    if (typeof window !== "undefined") {
+      import("@google/model-viewer");
+    }
+  }, []);
 
   return (
     <section className="section" id="resume">
@@ -90,7 +95,6 @@ function ResumePage() {
         </motion.div>
 
         <div className="about">
-          {/* Education Section */}
           {activeSection === "education" && (
             <motion.div
               initial={{ y: -200, opacity: 0 }}
@@ -109,13 +113,9 @@ function ResumePage() {
               <pre className="description">
                 Here&apos;s my Education Qualification
               </pre>
+              {/* Education content */}
               <div className="courses-container">
-                <motion.div
-                  initial={{ y: 0 }}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 1 }}
-                  className="course"
-                >
+                <div className="course">
                   <div className="year-container">
                     <div className="year">2022 - 2025</div>
                     <pre className="courseName text-sm">
@@ -126,13 +126,8 @@ function ResumePage() {
                     <div className="dot">&#x2022;</div>
                     <div className="method">Online course</div>
                   </div>
-                </motion.div>
-                <motion.div
-                  initial={{ y: 0 }}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 1 }}
-                  className="course"
-                >
+                </div>
+                <div className="course">
                   <div className="year-container">
                     <div className="year">2022 - 2024</div>
                     <pre className="courseName">Programming Course</pre>
@@ -141,13 +136,8 @@ function ResumePage() {
                     <div className="dot">&#x2022;</div>
                     <div className="method">Online Udemy</div>
                   </div>
-                </motion.div>
-                <motion.div
-                  initial={{ y: 0 }}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 1 }}
-                  className="course"
-                >
+                </div>
+                <div className="course">
                   <div className="year-container">
                     <div className="year">2024</div>
                     <pre className="courseName">Frontend Development</pre>
@@ -156,13 +146,8 @@ function ResumePage() {
                     <div className="dot">&#x2022;</div>
                     <div className="method">Online Udemy</div>
                   </div>
-                </motion.div>
-                <motion.div
-                  initial={{ y: 0 }}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.5 }}
-                  className="course"
-                >
+                </div>
+                <div className="course">
                   <div className="year-container">
                     <div className="year">2022</div>
                     <pre className="courseName">
@@ -173,12 +158,11 @@ function ResumePage() {
                     <div className="dot">&#x2022;</div>
                     <div className="method">From CBSE</div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           )}
 
-          {/* Skills Section */}
           {activeSection === "skill" && (
             <motion.div
               initial={{ x: 200, opacity: 0 }}
@@ -190,19 +174,18 @@ function ResumePage() {
               <h1 className="text-xl font-semibold text-mudGreen sm:text-4xl">
                 Skills In 3D Model
               </h1>
+              {/* Dynamically imported model-viewer */}
               <model-viewer
                 src="/models/laptop.glb"
                 alt="A 3D model of a laptop"
                 camera-controls
                 auto-rotate
-                environment-image="null"
                 shadow-intensity="1"
                 className="relative flex h-[400px] w-[500px] items-center justify-center px-10"
-              ></model-viewer>
+              />
             </motion.div>
           )}
 
-          {/* About Me Section */}
           {activeSection === "about" && (
             <motion.div
               initial={{ y: 300, opacity: 0 }}
@@ -222,6 +205,7 @@ function ResumePage() {
                 Here is my Skills that I have use for develop Websites and
                 Webapp and UI/UX of Webpage.
               </div>
+              {/* About Me content */}
               <div className="detail-container">
                 <div className="detail">
                   <span className="detail-name">Name</span>
@@ -255,4 +239,5 @@ function ResumePage() {
     </section>
   );
 }
+
 export default ResumePage;

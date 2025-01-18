@@ -93,7 +93,7 @@ function Project() {
 
   useEffect(() => {
     // Ensure we run this only in the client-side (browser) environment
-    if (typeof navigator !== "undefined") {
+    if (typeof window !== "undefined") {
       const projectItems = document.querySelectorAll(".project-item");
 
       projectItems.forEach((item, index) => {
