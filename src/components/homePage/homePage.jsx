@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { center } from "../navbar/navbar";
 import DownloadCVButton from "../downloadPDF/downloadCVButton";
+import SplitText from "@/components/splitText/splitText";
 
 function HomePage() {
   return (
@@ -45,12 +46,22 @@ function HomePage() {
           transition={{ duration: 1 }}
           className="flex flex-col items-start gap-5"
         >
-          <p className="w-96 text-sm text-light sm:w-[650px] sm:text-lg">
+          {/* <p className="w-96 text-sm text-light sm:w-[650px] sm:text-lg">
             Frontend developer, interested in building high-performance,
             eye-catching, responsive, and interactive user interfaces for web
             apps/websites. currently in 3rd yr of BCA, looking for full-time
             opportunity in the domain of frontend development.
-          </p>
+          </p> */}
+          <SplitText
+            text="Frontend developer, interested in building high-performance,eye-catching, responsive, and interactive user interfaces for web apps/websites. Currently in 3rd yr of BCA,looking for full-time opportunity in the domain of frontend development."
+            className="text-center text-lg font-medium leading-relaxed sm:text-2xl"
+            delay={80}
+            animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+            animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+          />
           <div className={`gap-5 ${center}`}>
             <motion.a
               href="https://www.linkedin.com/in/harsh-gupta-b56a63265/"

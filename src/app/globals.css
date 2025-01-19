@@ -65,6 +65,7 @@ header {
   flex-direction: column;
   gap: 30px;
 }
+
 .aboutme-container .hire-container span {
   font-size: 40px;
   font-family: monospace;

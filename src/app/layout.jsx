@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Notification from "@/components/toastifyNotification/notification";
+import SplashCursor from "@/components/SplashCursor/SplashCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Harsh Gupta Portfolio",
-  description: "3D Portfolio",
+  description: "Portfolio",
 };
 
 export default function RootLayout({ children }) {
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       >
         <Notification />
         <Navbar />
+        <SplashCursor />
         {children}
       </body>
     </html>

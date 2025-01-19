@@ -1,6 +1,7 @@
 import Image from "next/image";
 import download from "@/assets/icon/download.png";
 import { motion } from "framer-motion";
+import ShinyText from "../shineText/shineText";
 function DownloadCVButton() {
   return (
     <motion.a
@@ -8,7 +9,13 @@ function DownloadCVButton() {
       download="HarshGupta_CV"
       className="download_btn flex w-full items-center justify-center gap-3"
     >
-      Download CV
+      <ShinyText
+        text="Download CV"
+        disabled={false}
+        speed={3}
+        className="custom-class"
+      />
+
       <Image
         src={download}
         height={30}
