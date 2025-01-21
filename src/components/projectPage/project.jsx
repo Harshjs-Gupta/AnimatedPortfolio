@@ -20,6 +20,7 @@ import vibeshift3 from "@/assets/images/vibeShift3.png";
 import vibeshift4 from "@/assets/images/vibeShift4.png";
 import rightArrow from "@/assets/icon/rightArrow.png";
 import leftArrow from "@/assets/icon/leftArrow.png";
+import { motion } from "framer-motion";
 
 // Register gsap plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -137,12 +138,18 @@ function Project() {
 
   return (
     <section
-      className="projectContainer relative top-10 flex flex-col items-center justify-center gap-10 px-5 sm:h-auto sm:w-screen sm:gap-10"
+      className="projectContainer relative top-10 flex flex-col items-center justify-center gap-5 px-5 sm:h-auto sm:w-screen sm:gap-10"
       id="project"
     >
-      <h1 className="title text-4xl font-semibold text-mediumLight">
+      <motion.h1
+        initial={{ scale: 0.5, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.5, opacity: 0 }}
+        transition={{ duration: 1 }}
+        className="title text-4xl font-semibold text-mediumLight"
+      >
         Projects
-      </h1>
+      </motion.h1>
       <div className="flex flex-col gap-16">
         {projects.map((project, index) => (
           <div
@@ -176,7 +183,7 @@ function Project() {
                 />
               </button>
             </div>
-            <div className="flex w-[400px] flex-col gap-5">
+            <div className="flex w-96 flex-col gap-5 sm:w-[400px]">
               <div className="flex flex-col gap-5 border-b border-[#cad2c5] p-2">
                 <span className="font-cursive text-3xl font-semibold text-mediumLight">{`0${project.id}`}</span>
                 <span className="text-2xl font-semibold text-mediumLight">

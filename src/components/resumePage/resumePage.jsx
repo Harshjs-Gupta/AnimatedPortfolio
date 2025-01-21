@@ -44,9 +44,9 @@ function ResumePage() {
     <section className="section" id="resume">
       <div className="aboutme-container">
         <motion.div
-          ref={ref}
           initial={{ x: -200, opacity: 0 }}
-          animate={isInView && { x: 0, opacity: 1 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          exit={{ x: -200, opacity: 0 }}
           transition={{ duration: 1.5 }}
           className="hire-container"
         >
@@ -98,7 +98,8 @@ function ResumePage() {
           {activeSection === "education" && (
             <motion.div
               initial={{ y: -200, opacity: 0 }}
-              animate={isInView && { y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -200, opacity: 0 }}
               transition={{ duration: 2, type: "spring" }}
               style={{
                 rotateX: hovered ? rotateX : 0,
@@ -166,7 +167,8 @@ function ResumePage() {
           {activeSection === "skill" && (
             <motion.div
               initial={{ x: 200, opacity: 0 }}
-              animate={isInView && { x: 0, opacity: 1 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              exit={{ x: 200, opacity: 0 }}
               transition={{ duration: 1, type: "spring" }}
               className="skill-container relative flex h-[400px] w-[500px] flex-col items-start justify-center p-10 px-5"
               id="skill"
@@ -189,7 +191,8 @@ function ResumePage() {
           {activeSection === "about" && (
             <motion.div
               initial={{ y: 300, opacity: 0 }}
-              animate={isInView && { y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: 300, opacity: 0 }}
               transition={{ duration: 1, type: "spring" }}
               style={{
                 rotateX: hovered ? rotateX : 0,

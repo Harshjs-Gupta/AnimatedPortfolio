@@ -46,12 +46,6 @@ function HomePage() {
           transition={{ duration: 1 }}
           className="flex flex-col items-start gap-5"
         >
-          {/* <p className="w-96 text-sm text-light sm:w-[650px] sm:text-lg">
-            Frontend developer, interested in building high-performance,
-            eye-catching, responsive, and interactive user interfaces for web
-            apps/websites. currently in 3rd yr of BCA, looking for full-time
-            opportunity in the domain of frontend development.
-          </p> */}
           <SplitText
             text="Frontend developer, interested in building high-performance,eye-catching, responsive, and interactive user interfaces for web apps/websites. Currently in 3rd yr of BCA,looking for full-time opportunity in the domain of frontend development."
             className="text-center text-lg font-medium leading-relaxed sm:text-2xl"

@@ -2,6 +2,7 @@
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { motion, stagger } from "framer-motion";
+import RollingInfo from "../rollingInfomation/rollingInfo";
 
 function ServicePage() {
   const ref = useRef(null); // Reference for the element to observe
@@ -45,7 +46,7 @@ function ServicePage() {
       id: "04",
       title: "3D Artist",
       description:
-        "I'm, a passionate web developer specializing in creating dynamic and responsive websites and applications. With expertise in front-end technologies like HTML5, CSS3, JavaScript, and React.js and for Server send render I use Next.js",
+        "I'm a 3D artist using Blender specializes in creating stunning models, animations, renders and architecture. They utilize add-ons like Polygon for realistic textures and BlenderKit for assets.",
     },
   ];
 
@@ -55,19 +56,19 @@ function ServicePage() {
       id="service"
     >
       <motion.span
-        ref={ref}
         initial={{ scale: 0 }}
-        animate={isInView && { scale: 1 }}
+        whileInView={{ scale: 1 }}
         transition={{ duration: 1.5 }}
         className="relative top-5 text-4xl font-semibold text-mediumLight"
       >
         Our <span className="text-4xl font-bold text-light">Services</span>
       </motion.span>
-      <motion.div
+      <RollingInfo autoplay={true} pauseOnHover={true} items={services} />
+      {/* <motion.div
         ref={ref}
         variants={listAnimation}
         initial="initial"
-        animate={isInView ? "animate" : "initial"}
+        whileInView={isInView ? "animate" : "initial"}
         className="flex flex-col items-center justify-center gap-10 px-10 sm:grid sm:grid-cols-2"
       >
         {services.map((service, index) => (
@@ -86,7 +87,7 @@ function ServicePage() {
             <p className="text-sm text-light">{service.description}</p>
           </motion.div>
         ))}
-      </motion.div>
+      </motion.div> */}
     </main>
   );
 }

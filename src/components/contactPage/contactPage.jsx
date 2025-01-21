@@ -72,7 +72,7 @@ function ContactPage() {
         >
           <span className="text-mediumLight">Contact</span> Us
         </motion.h1>
-        <div className="flex items-center justify-center gap-20">
+        <div className="flex flex-col items-center justify-center gap-20 sm:flex-row">
           <motion.div
             initial={{ scale: 0, x: -100 }}
             whileInView={{ scale: 1, x: 0 }}

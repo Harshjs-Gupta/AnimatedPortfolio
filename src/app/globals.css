@@ -286,6 +286,7 @@ header {
     width: 100vw;
   }
   .aboutme-container .about .education-container .courses-container {
+    gap: 10px;
     grid-template-columns: 180px 180px;
     grid-template-rows: 80px 80px;
   }
@@ -329,23 +330,19 @@ header {
     font-size: 10px;
   }
   .aboutme-container .about .skill-container {
+    display: flex;
+    align-items: center;
+
     width: 100vw;
   }
-  .aboutme-container .about .skill-container .skills {
-    grid-template-columns: 90px 90px 90px 90px;
-    grid-template-rows: 90px 90px 90px 90px;
-  }
-  .aboutme-container .about .skill-container .skills .logo-container img {
-    height: 50px;
-    width: 50px;
-  }
+
   .aboutme-container .about .about-container {
     width: 100vw;
     padding: 10px;
   }
   .aboutme-container .about .about-container .detail-container {
-    -moz-column-gap: 90px;
-    column-gap: 90px;
+    -moz-column-gap: 70px;
+    column-gap: 70px;
     grid-template-columns: 100px 100px;
     grid-template-rows: 70px 70px 70px;
   }
@@ -359,4 +356,12 @@ header {
   width: 500px;
   height: 400px;
   object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .projectImage {
+    aspect-ratio: 1/2;
+    width: 100vw;
+    height: 200px;
+  }
 }
