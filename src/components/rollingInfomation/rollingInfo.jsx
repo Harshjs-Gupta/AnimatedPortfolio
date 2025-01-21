@@ -12,14 +12,19 @@ const RollingInfo = ({
   pauseOnHover = false,
   items = [],
 }) => {
-  const [isScreenSizeSm, setIsScreenSizeSm] = useState(
-    window.innerWidth <= 640,
-  );
+  const [isScreenSizeSm, setIsScreenSizeSm] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsScreenSizeSm(window.innerWidth <= 640);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setIsScreenSizeSm(window.innerWidth < 640);
+      };
+
+      handleResize();
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
   const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
