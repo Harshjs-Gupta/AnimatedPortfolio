@@ -18,6 +18,10 @@ import vibeshift from "@/assets/images/vibeshift.png";
 import vibeshift2 from "@/assets/images/vibeShift2.png";
 import vibeshift3 from "@/assets/images/vibeShift3.png";
 import vibeshift4 from "@/assets/images/vibeShift4.png";
+import PixelMind1 from "@/assets/images/pixelMind1.png";
+import PixelMind2 from "@/assets/images/pixelMind2.png";
+import PixelMind3 from "@/assets/images/pixelMind3.png";
+import PixelMind4 from "@/assets/images/pixelMind4.png";
 import rightArrow from "@/assets/icon/rightArrow.png";
 import leftArrow from "@/assets/icon/leftArrow.png";
 import { motion } from "framer-motion";
@@ -42,7 +46,7 @@ const projects = [
     description:
       "In this website you can search any products, view details of any products, and feature like add to cart, dummy payment system authentication and more.",
     technologies:
-      "Next.js, CSS3, TypeScript, TailwindCSS, SCSS, Firebase, FireStore",
+      "Next.js, TypeScript, TailwindCSS, GSAP, Firebase, FireStore, Amazon buddy",
     github: "https://github.com/Harshjs-Gupta/EzzyShop",
     url: "https://ezzy-shop-eight.vercel.app/",
   },
@@ -52,7 +56,7 @@ const projects = [
     title: "Chattify chatting site",
     description:
       "In this website you chat with your friends, send emojis, messages, and share images. You can also log out and block users.",
-    technologies: "HTML5, CSS3, React, TypeScript, TailwindCSS, SCSS",
+    technologies: "React, CSS3, TypeScript",
     github: "https://github.com/Harshjs-Gupta/Chattify2",
     url: "https://chattify2.vercel.app/",
   },
@@ -62,9 +66,19 @@ const projects = [
     title: "VibeShift",
     description:
       "So this website reads your mood and shows you UI on Screen based on mood and also plays some music based on your mood.",
-    technologies: "Next.js, CSS3, TailwindCSS, Face.js",
+    technologies: "Next.js, Framer Motion, TailwindCSS, Face.js",
     github: "https://github.com/Harshjs-Gupta/VibeShift",
     url: "https://vibe-shift.vercel.app/",
+  },
+  {
+    id: 4,
+    image: [PixelMind1, PixelMind2, PixelMind3, PixelMind4],
+    title: "PixelMind Bg Remover",
+    description:
+      "So this website any picture from your device or any image url as a input and remove background of that image and download it.",
+    technologies: "Next.js, GSAP, Framer Motion, TailwindCSS, Remove.bg API",
+    github: "https://github.com/Harshjs-Gupta/PixelMind",
+    url: "https://pixel-mind-dev.vercel.app/",
   },
 ];
 
