@@ -5,7 +5,7 @@ import ShinyText from "../shineText/shineText";
 function DownloadCVButton() {
   return (
     <motion.a
-      href="/pdf/HarshGupta_Resume.pdf"
+      href="/pdf/HarshGuptaResume.pdf"
       download="HarshGupta_CV"
       className="download_btn flex w-full items-center justify-center gap-3"
     >
